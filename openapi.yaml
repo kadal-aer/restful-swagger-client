@@ -3,7 +3,7 @@ info:
   title: ATS-pemrograman-iii
   version: 1.0.0
 servers:
-  - url: http://localhost:8082/
+  - url: https://restful-go-swagger-server.vercel.app/
 components:
   securitySchemes:
     BearerAuth:
