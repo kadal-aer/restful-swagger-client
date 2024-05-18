@@ -4,11 +4,7 @@ info:
   version: 1.0.0
 servers:
   - url: https://api-floobot.cyclic.app
-components:
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: Bearer
+
 paths:
   /:
     get:
