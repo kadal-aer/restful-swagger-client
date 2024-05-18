@@ -10,7 +10,7 @@ components:
       type: http
       scheme: Bearer
 paths:
-  /categories:
+  /:
     get:
       tags:
         - default
