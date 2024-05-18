@@ -3,7 +3,7 @@ info:
   title: ATS-pemrograman-iii
   version: 1.0.0
 servers:
-  - url: https://restful-go-swagger-server.vercel.app/
+  - url: https://api-floobot.cyclic.app
 components:
   securitySchemes:
     BearerAuth:
