@@ -1,96 +1,199 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
-  title: ATS-pemrograman-iii
+  title: Documentation
   version: 1.0.0
 servers:
-  - url: https://api-floobot.cyclic.app
-
+  - url: https://api.rynxd.link/
 paths:
-  /:
+  /api:
     get:
       tags:
-        - default
-      summary: Get-Data
+        - Home
+      summary: Landing
       responses:
         "200":
           description: Successful response
           content:
             application/json: {}
-    post:
-      tags:
-        - default
-      summary: Add-Data
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                category: t-shirt
-                about: "semua ada kaos"
-      security:
-        - BearerAuth: []
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json: {}
-    put:
-      tags:
-        - default
-      summary: Update-Data
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                id: 1
-                category: laptop
-                about: "segala laptop"
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json: {}
-  /categories?id={id}:
+  /api/remini:
     get:
       tags:
-        - default
-      summary: Get-Data-ID
+        - Image Processing
+      summary: Image Enhancer
       parameters:
-        - name: id
+        - name: url
           in: query
           required: true
           schema:
-            type: integer
-            example: 1
+            type: string
       responses:
         "200":
           description: Successful response
           content:
             application/json: {}
-    delete:
+  /api/removebg:
+    get:
       tags:
-        - default
-      summary: Delete-Data
+        - Image Processing
+      summary: Remove Background from Image
       parameters:
-        - name: id
-          in: path # Mengubah 'query' menjadi 'path'
+        - name: url
+          in: query
           required: true
           schema:
-            type: integer
-            example: 2
+            type: string
       responses:
         "200":
           description: Successful response
           content:
             application/json: {}
-  /login:
+  /api/toanime:
+    get:
+      tags:
+        - Image Processing
+      summary: Turn your photo to anime
+      parameters:
+        - name: url
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/gpt:
+    get:
+      tags:
+        - Chat AI
+      summary: Chat with Gpt AI
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+            example: hai
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/gemini:
+    get:
+      tags:
+        - Chat AI
+      summary: Chat with Gemini AI
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+            example: hai
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/bingimage:
+    get:
+      tags:
+        - Bing Image Creator
+      summary: Generate Image with AI
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+            example: anak kecil bermain bola
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+            example: apikey
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/chara/search:
+    get:
+      tags:
+        - Character AI
+      summary: Search Character From Character AI
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+            example: Gojo Satoru
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+            example: apikey
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/chara/chat:
     post:
       tags:
-        - default
-      summary: Login
+        - Character AI
+      summary: Chat with Character AI
+      parameters:
+        - name: characterId
+          in: query
+          required: true
+          schema:
+            type: string
+            example: characterId
+        - name: text
+          in: query
+          required: true
+          schema:
+            type: string
+            example: Nama kamu siapa?
+        - name: sessionId
+          in: query
+          required: false
+          schema:
+            type: string
+            example: sessionId
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/get-data:
+    get:
+      tags:
+        - Cloud Database
+      summary: Get Data User
+      parameters:
+        - name: apikey
+          in: query
+          required: true
+          schema:
+            type: string
+            example: apikey
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/update-data:
+    post:
+      tags:
+        - Cloud Database
+      summary: Update Data User
       requestBody:
         content:
           application/json:
